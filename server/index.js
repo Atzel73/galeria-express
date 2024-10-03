@@ -7,10 +7,25 @@ const app = express();
 
 app.use(express.static(path.resolve(__dirname, '../client/build')));
 
+
+let users = {
+    1: {
+        id: '1',
+        username: 'Claudia Valdivieso',
+    },
+    2: {
+        id: '2',
+        username: 'Carlos Zárate',
+    },
+};
+
+
 app.get("/api", (require, response) => {
     response.json({ message: "Hello from server!" });
 })
-
+app.get("/message", (require, response) => {
+    return response.send(Object.values(users))
+})
 app.get('*', (req, res) => {
     res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'));
 });

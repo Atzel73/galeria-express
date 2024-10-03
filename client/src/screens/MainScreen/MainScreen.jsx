@@ -8,10 +8,10 @@ function MainScreen() {
   const [isError, setIsError] = React.useState(false);
 
   React.useEffect(() => {
-    fetch("/api")
+    fetch("/message")
       .then((res) => res.json())
       .then((data) => {
-        setData(data.message);
+        setData(data);
         setIsLoading(false);
       })
       .catch((error) => {
@@ -29,7 +29,7 @@ function MainScreen() {
   }
   return (
     <div className="container">
-      <section><p>{data}</p></section>
+      {data && data.map((item, index) => <p key={index}>{item.username}</p>)}
     </div>
   );
 }
