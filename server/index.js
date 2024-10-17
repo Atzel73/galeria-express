@@ -1,12 +1,17 @@
 const express = require('express');
 const path = require('path');
-
-
 const PORT = process.env.PORT || 3001;
 const app = express();
+const dotenv = require('dotenv')
+
+dotenv.config()
+
 
 app.use(express.static(path.resolve(__dirname, '../client/build')));
-
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+//app.use(require('./routes/carta'))
+const { connection } = require("./config.db")
 
 let users = {
     1: {
@@ -28,6 +33,18 @@ let users = {
 };
 
 
+const getCarta = (request, response) => {
+    connection.query("SELECT * FROM carta",
+        (error, results) => {
+            if (error)
+                throw error;
+            response.status(200).json(results);
+        });
+};
+app.route("/carta").get(getCarta);
+
+
+
 app.get("/api", (require, response) => {
     response.json({ message: "Hello from server!" });
 })
@@ -39,8 +56,13 @@ app.get('*', (req, res) => {
 });
 
 
-app.listen(PORT, () => {
-    console.log(`Server listening on ${PORT}`);
+app.listen(PORT, error => {
+    if (error) {
+        console.log(error)
+        return;
+    } else {
+        console.log(`Server listening on port http:localhost:${PORT}`)
+    }
 })
 
 

@@ -15,11 +15,13 @@ function MainScreen() {
   const [isError, setIsError] = React.useState(false);
 
   React.useEffect(() => {
-    fetch("/message")
+    fetch("/carta")
       .then((res) => res.json())
       .then((data) => {
         setData(data);
         setIsLoading(false);
+        setIsError(false);
+        console.log("Data fetched successfully:", data);
       })
       .catch((error) => {
         console.error("Error fetching data: ", error);
@@ -39,7 +41,7 @@ function MainScreen() {
   return (
     <Container>
       <Row>
-        {data &&
+        {/* {data &&
           data.map((item, index) => (
             <Col
               key={index}
@@ -50,7 +52,6 @@ function MainScreen() {
               className="d-flex justify-content-center"
             >
               {" "}
-              {/* Se agrega un centrado flexible */}
               <Card style={{ width: "100%", marginBottom: "20px" }}>
                 <Card.Img variant="top" src="holder.js/100px180" />
                 <Card.Body>
@@ -63,7 +64,7 @@ function MainScreen() {
                 </Card.Body>
               </Card>
             </Col>
-          ))}
+          ))} */}
       </Row>
     </Container>
   );
