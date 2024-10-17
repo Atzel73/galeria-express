@@ -8,8 +8,8 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
-      </header>
+      {/* <header className="App-header">
+      </header> */}
       <ParallaxScreen />
       {/* <section className='section-style'><MainScreen /></section> */}
 
