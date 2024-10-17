@@ -1,0 +1,45 @@
+.parallax {
+  height: 100vh; 
+  width: 100vw; 
+  background-image: url("https://your-image-url.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+}
+
+.content-section {
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f4f4f4;
+  padding: 20px;
+}
+
+.content h1 {
+  font-size: 3rem;
+  color: black;
+}
+
+.content p {
+  font-size: 1.5rem;
+}
+
+.content {
+  background-image: url("https://i.pinimg.com/564x/24/97/ba/2497badbada80168369230967dafb026.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 100%; 
+  width: 100%; 
+  padding: 2rem; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
